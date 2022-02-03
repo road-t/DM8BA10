@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For DM8BA10
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DM8BA10			KEYWORD1
+Charset			KEYWORD1
+LatinBasicCharset	KEYWORD1
+CyrillicMinCharset	KEYWORD1
+CyrillicSlavicCharset	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+clearDisplay	KEYWORD2
+setPos		KEYWORD2
+allSegments	KEYWORD2
+drawChar		KEYWORD2
+setChar		KEYWORD2
+scroll		KEYWORD2
+point		KEYWORD2
+resetPoints	KEYWORD2
+padString	KEYWORD2
+getCharset	KEYWORD2
+systemOscillator KEYWORD2
+LCD		KEYWORD2
+backlight	KEYWORD2
