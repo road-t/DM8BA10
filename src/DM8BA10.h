@@ -63,7 +63,7 @@ Each bit of a 2-byte word represents particular segment:
  |------------------------|
 */
 
-#include <charset/Charset.h>
+#include <charset/charset.h>
 
 // Communication prefixes
 #define BIT_PREFIX_CMD  0b100 // HT162x commands (Start with 0b100, ends with an unused byte
