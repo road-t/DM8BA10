@@ -33,6 +33,11 @@ class LatinBasicCharset : public Charset
       0x4814, 0x4810, 0x1900, 0x14C1, 0x0440, 0x8548, 0x4010, 0xFFFF, // xyz{|}~DEL
     };
   
+    inline word Char(word index)
+    {
+      return index < size() ? chars[index] : dummy();
+    }
+
     inline word size() override { return 0x60; }
 };
 
