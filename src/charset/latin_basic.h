@@ -4,9 +4,8 @@
 #include "charset.h"
 
 /* 
- *  Basic Latin characters + Cyrillic characters used in Russian, Ukrainian,
- *  Belorussian, Rusyn, Serbian, Bulgarian and Macedonian languages
-*/
+ *  Basic Latin characters 
+ */
 
 class LatinBasicCharset : public Charset
 {
