@@ -85,7 +85,7 @@ const byte POINTS_CLUSTERS[] = { 0x29, 0x2B, 0x2D };
 class DM8BA10
 {
   public:
-    DM8BA10(Charset* charset, byte csPin, byte wrPin, byte dataPin, int16_t backlightPin = -1);
+    DM8BA10(Charset* charset, int8_t csPin, int8_t wrPin, int8_t dataPin, int8_t backlightPin = -1);
     ~DM8BA10();
 
     // Turns all the segments off and resets current position
@@ -95,9 +95,9 @@ class DM8BA10
     // 0 – most left place, -1 – most right place
     byte setPos(int8_t);
 
-    inline void systemOscillator(bool on = true);
-    inline void LCD(bool on = true);
-    inline void backlight(bool on = true);
+    void systemOscillator(bool on = true);
+    void LCD(bool on = true);
+    void backlight(bool on = true);
 
     // Switches all the segments on or off
     void allSegments(bool on = true);
@@ -118,7 +118,7 @@ class DM8BA10
     // This function is slower than print() and consumes
     // extra memory.
     // Padding is off by default though
-    void println(String& str, Padding podType = Right);
+    void println(String str, Padding podType = Right);
 
     // Just prints the string starting from specified
     // (or current position if pos == -1)
@@ -126,11 +126,11 @@ class DM8BA10
     // It doesn't overwrite places outside of
     // current string and can cause artifacts.
     // current position is being reset only if the display is full
-    byte print(String& str, int8_t pos = -1);
+    byte print(String str, int8_t pos = -1);
 
     // Displays string starting at `start` and adds a space
     // to the end of string
-    void scroll(String& text, word start = 0);
+    void scroll(String text, word start = 0);
 
     // Decimal points aren't part of common symbols
     // so this function turns them on and off
@@ -146,16 +146,16 @@ class DM8BA10
 
     // Returns string padded with spaces to fill 
     // all the places on the display
-    String padString(String& text, Padding padType);
+    String padString(String text, Padding padType);
 
     // Returns Charset object to access its properties or methods
     inline Charset* getCharset() { return charset; }
 
   private:
-    byte csPin;
-    byte wrPin;
-    byte dataPin;
-    byte backlightPin;
+    int8_t csPin = -1;
+    int8_t wrPin = -1;
+    int8_t dataPin = -1;
+    int8_t backlightPin = -1;
     
     const byte* places = SYMBOL_ADDRESSES;
     const byte displaySize = sizeof(SYMBOL_ADDRESSES);

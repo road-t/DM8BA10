@@ -24,16 +24,16 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "DM8BA10.h"
 
-DM8BA10::DM8BA10(Charset* charset, byte csPin, byte wrPin, byte dataPin, int16_t backlightPin) : charset(charset), csPin(csPin), wrPin(wrPin), dataPin(dataPin), backlightPin(backlightPin)
+DM8BA10::DM8BA10(Charset* charset, int8_t csPin, int8_t wrPin, int8_t dataPin, int8_t backlightPin) : charset(charset), csPin(csPin), wrPin(wrPin), dataPin(dataPin), backlightPin(backlightPin)
 {
     // pin setup
-    pinMode(this->wrPin, OUTPUT);
-    pinMode(this->dataPin, OUTPUT);
-    pinMode(this->csPin, OUTPUT);
+    pinMode(wrPin, OUTPUT);
+    pinMode(dataPin, OUTPUT);
+    pinMode(csPin, OUTPUT);
     
-    if (this->backlightPin > -1)
+    if (backlightPin >= -1)
     {
-        pinMode(this->backlightPin, OUTPUT);
+        pinMode(backlightPin, OUTPUT);
     }
 
     // turn on oscillator
@@ -113,7 +113,7 @@ void DM8BA10::setChar(const byte ch, int8_t pos)
     sendData(places[(pos < 0) ? curPos : pos], character, 16);
 }
 
-byte DM8BA10::print(String& text, int8_t pos)
+byte DM8BA10::print(String text, int8_t pos)
 {
   if (pos > -1)
       curPos = pos;
@@ -134,7 +134,7 @@ byte DM8BA10::print(String& text, int8_t pos)
   return written;
 }
 
-void DM8BA10::println(String& text, Padding padType)
+void DM8BA10::println(String text, Padding padType)
 {
     auto resultString = padString(text, padType);
     
@@ -151,7 +151,7 @@ void DM8BA10::println(String& text, Padding padType)
 }
 
 
-void DM8BA10::scroll(String& text, word start)
+void DM8BA10::scroll(String text, word start)
 {
     curPos = 0;
     word stringPos = start;
@@ -188,7 +188,7 @@ void DM8BA10::setPoint(byte index)
   point(index);
 }
 
-void DM8BA10::point(byte index, bool on = true)
+void DM8BA10::point(byte index, bool on)
 {
   if (!pointClustersCount)
     return;
@@ -204,7 +204,7 @@ void DM8BA10::point(byte index, bool on = true)
   sendData(address, bit, 4);
 }
 
-String DM8BA10::padString(String& text, Padding padType)
+String DM8BA10::padString(String text, Padding padType)
 {
     word textLen = text.length();
     byte padSize = 0;
