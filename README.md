@@ -15,6 +15,12 @@ Arduino library for chinese 16 segment/10 characters LCD modules based on HT1622
 <img src="assets/cyrillic.jpeg" alt="Cyrillic letters" width="300" />
 <img src="assets/jackdaws.jpeg" alt="Custom fonts" width="300" />
 
+## Installation
+
+You can install the library via Arduino IDE library manager or
+[download latest release](https://github.com/road-t/DM8BA10/releases)
+and unzip it to your project folder.
+
 ## Usage
 
 1. Connect the display `CS`, `WR` and `DATA` wires to any three Arduino's digital pins (backlight should be connected
@@ -22,11 +28,11 @@ to analog pin or to +5V if you don't wan't to control it programmatically).
 
 2. Include the library header:
 ```c++
-#include "DM8BA10/DM8BA10.h"
+#include <DM8BA10.h>
 ```
 3. Include preferable charset instance:
 ```c++
-#include "DM8BA10/charset/latin_basic.h"
+#include <charset/latin_basic.h>
 ```
 4. Create charset:
 ```c++
@@ -40,8 +46,6 @@ auto lcd = new DM8BA10(charset);
 ```c++
 lcd->println("PROFIT");
 ```
-## Examples
-Examples can be found at `/examples` folder.
 
 ## API reference
 ### Constructor
