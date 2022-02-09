@@ -94,7 +94,7 @@ lcd->println(preparedText, DM8BA10::Padding::Both);
 byte print(String& str, int8_t pos = -1)
 ```
 #### Description
-Prints the text starting from specified or current position (by defailt)
+Prints the text starting from specified or current position (by default)
 to the end of the string or the indicator.
 
 **N.B.** It doesn't overwrite places outside of specified string and can
