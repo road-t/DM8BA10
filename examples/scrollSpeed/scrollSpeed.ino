@@ -1,6 +1,6 @@
 /* 
 * Here you can see a way to control text scrolling
-* speed (actually display refresh rate) speed with potentiometer.
+* speed (actually display refresh rate) with potentiometer.
 */
 
 #include <DM8BA10.h>
