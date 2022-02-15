@@ -4,9 +4,8 @@
 #include "charset.h"
 
 /* 
- *  Basic Latin characters + Cyrillic characters used in Russian, Ukrainian,
- *  Belorussian, Rusyn, Serbian, Bulgarian and Macedonian languages
-*/
+ *  Basic Latin characters 
+ */
 
 class LatinBasicCharset : public Charset
 {
@@ -38,6 +37,11 @@ class LatinBasicCharset : public Charset
       return index < size() ? chars[index] : dummy();
     }
   
+    inline word Char(word index)
+    {
+      return index < size() ? chars[index] : dummy();
+    }
+
     inline word size() override { return 0x60; }
 };
 
