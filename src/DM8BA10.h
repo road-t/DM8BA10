@@ -152,6 +152,8 @@ class DM8BA10
     inline Charset* getCharset() { return charset; }
 
   private:
+    Charset* charset;
+
     int8_t csPin = -1;
     int8_t wrPin = -1;
     int8_t dataPin = -1;
@@ -163,8 +165,6 @@ class DM8BA10
     const byte* pointClusters = POINTS_CLUSTERS;
     const byte pointClustersCount = sizeof(POINTS_CLUSTERS);
   
-    Charset* charset;
-
     byte curPos = 0;
     bool backlightOn;
 
