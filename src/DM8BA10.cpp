@@ -31,7 +31,7 @@ DM8BA10::DM8BA10(Charset* charset, int8_t csPin, int8_t wrPin, int8_t dataPin, i
     pinMode(dataPin, OUTPUT);
     pinMode(csPin, OUTPUT);
     
-    if (backlightPin >= -1)
+    if (backlightPin > -1)
     {
         pinMode(backlightPin, OUTPUT);
     }
