@@ -1,6 +1,10 @@
 #ifndef ROADT_CHARSET
 #define ROADT_CHARSET
 
+#ifdef ESP_IDF
+#include "charset/esp_idf.h"
+#endif
+
 class Charset
 {
   public:

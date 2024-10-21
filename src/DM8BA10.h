@@ -6,7 +6,12 @@
 #ifndef ROADT_DM8BA10_H
 #define ROADT_DM8BA10_H
 
+#ifdef ESP_IDF
+#include "esp_idf.h"
+#else
 #include <Arduino.h>
+#endif
+
 /*
 Each bit of a 2-byte word represents particular segment:
 
