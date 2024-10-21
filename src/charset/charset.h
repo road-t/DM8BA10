@@ -25,6 +25,8 @@ class Charset
     // redefine this function to map similar characters to one,
     // eliminate characterset gaps, add auxillary characters support, etc.
     virtual inline String& remap(String& string) { return string; }
+
+    virtual ~Charset() {} // Virtual destructor
 };
 
 #endif
