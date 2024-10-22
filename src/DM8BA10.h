@@ -6,7 +6,12 @@
 #ifndef ROADT_DM8BA10_H
 #define ROADT_DM8BA10_H
 
+#ifdef ESP_IDF
+#include "esp_idf.h"
+#else
 #include <Arduino.h>
+#endif
+
 /*
 Each bit of a 2-byte word represents particular segment:
 
@@ -152,6 +157,8 @@ class DM8BA10
     inline Charset* getCharset() { return charset; }
 
   private:
+    Charset* charset;
+
     int8_t csPin = -1;
     int8_t wrPin = -1;
     int8_t dataPin = -1;
@@ -163,8 +170,6 @@ class DM8BA10
     const byte* pointClusters = POINTS_CLUSTERS;
     const byte pointClustersCount = sizeof(POINTS_CLUSTERS);
   
-    Charset* charset;
-
     byte curPos = 0;
     bool backlightOn;
 

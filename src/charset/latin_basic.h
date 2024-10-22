@@ -36,11 +36,6 @@ class LatinBasicCharset : public Charset
     {
       return index < size() ? chars[index] : dummy();
     }
-  
-    inline word Char(word index)
-    {
-      return index < size() ? chars[index] : dummy();
-    }
 
     inline word size() override { return 0x60; }
 };
